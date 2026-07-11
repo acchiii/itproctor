@@ -100,7 +100,7 @@ async function scanFrame() {
 
 
 function startScan() {
- interv = setInterval(scanFrame, 3000);
+ interv = setInterval(scanFrame, 2000);
 }
 
 
