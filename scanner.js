@@ -125,6 +125,14 @@ function speak(text) {
   document.body.addEventListener('click', function(){
     scanFrame();
   })
+
+  // scan when the screen is touched (for mobile devices)
+  document.body.addEventListener('touchstart', function(){
+    scanFrame();
+  })
+
+ 
+
   
 })();
 

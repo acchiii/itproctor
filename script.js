@@ -17,6 +17,11 @@ async function getExamData(code, result) {
 
         
              if (data && Array.isArray(data.questions)) {
+              // check data length
+              if (data.questions.length === 0) {
+                result.innerHTML += `<b style="color: orange;">Invalid code.</b><br>`;
+                return;
+              }
          decode(data);
       } else {
         result.innerHTML += `<b style="color: orange;">No questions found or invalid format.</b><br>`;
