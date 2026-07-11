@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEC IT PROCTOR ANSWER</title>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+                padding: 0;
+                margin: 0;
+                scrollbar-width: none;
+                overflow: auto;
+                font-family: monospace;
+                overflow-x: hidden;
+                --webkit-scrollbar-width: 0;
+                
+        }
+        body {
+            background-color: black;
+            font-family: 'Poppins', sans-serif;
+        }
+        #result , #output {
+            color: green;
+            font-family: monospace,  sans-serif;
+            padding-right: 20px;
+        }
+         section {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+
+         div {
+            background-color: transparent;
+            border-radius: 15px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+         }
+         button {
+            width: 50%;
+            margin-top: 20px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+         }
+         input {
+            padding-top: 8px;
+            padding-bottom: 8px;
+         }
+
+         button, input {
+            border-radius: 10px;
+            border: 2px solid white;
+            box-shadow: 1px 2px 3px rgba(0,0,0, 0.4);
+         }
+
+         
+         .bg {
+            background-image: url('https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/467686990_1101615251635433_9079035779926262456_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeE8VBJG10wGbzb_t_REBCjS2_9Tnh4f96_b_1OeHh_3r9GJWO9vyCmpt3KL0xg8_eALaT-ERjGr4zCQm99RfOuw&_nc_ohc=0h7gIkdd6x4Q7kNvwEUzX_6&_nc_oc=AdkGc8HJXA5WEzPzteagHB9guf63E4EmzosrtoIaIznRu5VahJv7-VwIp70zVWISw40&_nc_zt=23&_nc_ht=scontent.fceb2-2.fna&_nc_gid=hdE5HDJTh5QVMbNW_loYVA&oh=00_AfeuUj9QlfEjbrLVh9kYC_5La_ZjMpy02XAZ6HVnB0ksUw&oe=68FE6F4E');
+            background-position: cover;
+            background-repeat: no-repeat;
+           
+         }
+
+         .cont {
+            display: flex;
+            flex-wrap: wrap   ;
+            flex-grow: 2;
+            flex-direction: column;
+         }
+
+         .cont {
+            background-color: transparent;
+         }
+
+         .cdat {
+            position: sticky;
+            z-index: 1000;
+            display: none;
+         }
+         .tcont {
+            height: 50vh;
+
+            display: flex;
+            flex-direction: column;
+            flex-grow: 2   ;
+         }
+         #label {
+            color: teal;
+            padding: 8px 20px;
+            background-color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+         }
+
+         #output {
+            height: 100px;
+            font-size: 20px;
+            color: black;
+            position: absolute;
+            background-color: white;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 10px;
+            padding: 10px 20px;
+            text-align: center;
+            top: 50vh;
+            z-index: 1000;
+            text-align: center;
+            margin: 0 10%;
+            border: 2px solid red;
+            height: auto;
+         }
+
+         #openCameraBtn {
+            overflow: hidden;
+               border-radius: 180px;
+               width: 80px;
+               height: 80px;
+               position: absolute;
+               bottom: 80px;
+               right: 80px;
+               background-color: teal;
+         }
+         #search {
+            font-size: 30px;
+         }
+    </style>
+</head>
+<body>
+
+<div class="bg">
+
+   <section id="sec">
+      
+      <div class="cont">
+         
+         <input type="text" id="search" style="margin: 10px 0; padding: 5px 10px;" placeholder="Search Question"></input>
+      
+      <div class="cdat" id="cdat">
+   <h2 id="label">Scan the Questions</h2>
+         
+         <video id="video" autoplay playsinline width="400" style="border-radius: 15px;"></video>
+         
+         <canvas id="canvas" style="display:none; border-radius: 15px;"></canvas>
+         
+       
+      </div>
+
+      <div class="tcont">
+
+         <p id="output" >Answer shows here...<br>(If you will use camera, focus the cam and touch the screen to answer)</p>
+         
+         
+         <p id="result"></p>
+      </div>
+      </div>
+   </section>
+</div>
+
+
+<!-- floatingadd burron below right side -->
+     <button
+      id="openCameraBtn"  style="color: white; font-size: 30px; font-weight: bold;"
+             onclick=""
+      aria-label="Use Camera"   
+    >
+     📷
+    </button>
+  
+ 
+ 
+</body>
+<script src="script.js" type="module"></script>
+ <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="scanner.js"></script>   
+
+</html>
