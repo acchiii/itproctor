@@ -34,6 +34,9 @@ function loadData() {
 
 
 async function startCamera() {
+
+  const scanIntervalStopper = null;
+
   try {
    const stream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: { ideal: "environment" } },
@@ -88,10 +91,10 @@ async function scanFrame() {
 
        speak(`${match.answer == '-' ? 'false' : match.answer}`)
     } else {
-      //console.log(` Skipped kay same answer.`);
+      console.log(` Skipped kay same answer.`);
     }
   } else {
-    //console.log("No match"); yellow
+  console.log("No match"); 
   }
 }
 
@@ -115,23 +118,8 @@ function speak(text) {
 (async function init() {
   loadData();      
   
+ startScan();
 
-  document.body.addEventListener('keydown', (event) =>{
-    if(event.key == 'Enter' || event.key == 'Space'){
-      scanFrame();
-    }
-  });
-
-  document.body.addEventListener('click', function(){
-    scanFrame();
-  })
-
-  // scan when the screen is touched (for mobile devices)
-  document.body.addEventListener('touchstart', function(){
-    scanFrame();
-  })
-
- 
 
   
 })();

@@ -99,6 +99,34 @@
 
       }
 
+      /* Camera wrap + capture button */
+      .cameraWrap {
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .captureBtn {
+         margin: 12px 0 14px 0;
+         padding: 10px 18px;
+         border-radius: 999px;
+         border: 1px solid rgba(255, 255, 255, 0.18);
+         background: linear-gradient(90deg, #11c7b3, #14a2ff);
+         color: #fff;
+         font-weight: 800;
+         cursor: pointer;
+         box-shadow: 0 14px 34px rgba(0, 180, 160, 0.25);
+         transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .captureBtn:hover {
+         transform: translateY(-1px);
+         box-shadow: 0 18px 44px rgba(0, 180, 160, 0.32);
+      }
+
+
       #label {
          color: #11c7b3;
          padding: 10px 18px;
@@ -243,14 +271,18 @@
             <div class="cdat" id="cdat">
                <h2 id="label" style="display: none;">Scan the Questions</h2>
 
-               <video id="video" autoplay playsinline width="400" style="border-radius: 15px;"></video>
-               <canvas id="canvas" style="display:none; border-radius: 15px;"></canvas>
+               <div class="cameraWrap">
+                  <video id="video" autoplay playsinline width="400" style="border-radius: 15px;"></video>
+                  <canvas id="canvas" style="display:none; border-radius: 15px;"></canvas>
+
+                  <!-- Capture button (UI only; camera scan still triggers on click/touch)
+                  <button id="captureBtn" class="captureBtn" type="button" aria-label="Capture and Answer">Capture</button> -->
+               </div>
 
             </div>
 
             <div class="tcont">
-               <p id="output">Answer shows here...<br>(If you will use camera, focus the cam and touch the screen to
-                  answer)</p>
+               <p id="output">Answer shows here...<br>(If you will use camera, it will capture every two seconds)</p>
 
                <p id="result"></p>
             </div>
