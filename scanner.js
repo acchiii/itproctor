@@ -91,10 +91,10 @@ async function scanFrame() {
 
        speak(`${match.answer == '-' ? 'false' : match.answer}`)
     } else {
-      console.log(` Skipped kay same answer.`);
+      // console.log(` Skipped kay same answer.`);
     }
   } else {
-  console.log("No match"); 
+  // console.log("No match"); 
   }
 }
 
@@ -118,7 +118,7 @@ function speak(text) {
 (async function init() {
   loadData();      
   
- startScan();
+ scanFrame(); // Initial scan
 
 
   
